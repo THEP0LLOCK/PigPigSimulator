@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/pig.jpg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #animal-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        #animal-image {
+            max-width: 200px;
+            max-height: 200px;
+        }
+
+        #FeedButton, #PlayButton ,#HitButton{
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .shake-animation {
+        animation: shake 0.3s cubic-bezier(.36,.07,.19,.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+    }
+
+    @keyframes shake {
+        10%, 90% {
+            transform: translate3d(-1px, 0, 0);
+        }
+
+        20%, 80% {
+            transform: translate3d(2px, 0, 0);
+        }
+
+        30%, 50%, 70% {
+            transform: translate3d(-4px, 0, 0);
+        }
+
+        40%, 60% {
+            transform: translate3d(4px, 0, 0);
+        }
+    }
+    /* 먹이 주기 버튼의 호버 효과 */
+#FeedButton:hover {
+    background-color: #45a049; /* 호버 시 배경색 변경 */
+    transform: scale(1.1); /* 호버 시 버튼 확대 */
+    transition: background-color 0.3s, transform 0.3s; /* 부드러운 전환 효과 추가 */
+
+
+}
+
+/* 놀아주기 버튼의 호버 효과 */
+#PlayButton:hover {
+    background-color: #357f5d; /* 호버 시 배경색 변경 */
+    transform: scale(1.1); /* 호버 시 버튼 확대 */
+    transition: background-color 0.3s, transform 0.3s; /* 부드러운 전환 효과 추가 */
+}
+
+/* 존나 패기 버튼의 호버 효과 */
+#HitButton:hover {
+    background-color: #ff0000; /* 호버 시 배경색 변경 */
+    transform: scale(1.1); /* 호버 시 버튼 확대 */
+    transition: background-color 0.3s, transform 0.3s; /* 부드러운 전환 효과 추가 */
+}
+#hunger-container {
+    width: 100%;
+    background-color: #eee;
+    height: 20px;
+    margin: 10px 0;
+}
+
+#hunger-gauge {
+    width: 0;
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.3s ease-in-out;
+}
+
+</style>
+</head>
+<body>
+<div id="container">
+    <h1 id="Status">아기 주용이는 배가 고파요!</h1>
+    <div id="animal-container">
+        <img id="animal-image" src="./normal.jpg">
+    </div>
+    <div id="hunger-container">
+        <div id="hunger-gauge"></div>
+    </div>
+    <button id="FeedButton">먹이 주기</button>
+    <button id="PlayButton">놀아주기</button>
+    <button id="HitButton">존나 패기</button>
+
+    <audio id="feed-sound">
+        <source src="./feed-sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="play-sound">
+        <source src="./play-sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="hit-sound">
+        <source src="./hit-sound.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="end-sound">
+        <source src="./end-audio.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+
+    <script src="/script.js"></script>
+</body>
+</html>
